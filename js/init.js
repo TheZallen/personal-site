@@ -1,14 +1,8 @@
-/*
-	Helios 1.0 by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
 /*********************************************************************************/
 /* Settings                                                                      */
 /*********************************************************************************/
 
-	var helios_settings = {
+	var settings = {
 
 		// Header (homepage only)
 			header: {
@@ -83,7 +77,7 @@
 /*********************************************************************************/
 
 // Initialize skelJS
-	skel.init(helios_settings.skelJS, helios_settings.skelJSPlugins);
+	skel.init(settings.skelJS, settings.skelJSPlugins);
 
 // jQuery functions
 
@@ -190,7 +184,7 @@
 			$('.scrolly').n33_scrolly();
 
 		// Initialize dropotron
-			$('#nav > ul').dropotron(helios_settings.dropotron);
+			$('#nav > ul').dropotron(settings.dropotron);
 
 		// Initialize carousels
 			$('.carousel').each(function() {
@@ -209,7 +203,7 @@
 					timerId;
 
 				// Items
-					if (helios_settings.carousels.fadeIn)
+					if (settings.carousels.fadeIn)
 					{
 						$items.addClass('loading');
 
@@ -237,7 +231,7 @@
 								else
 									xf.removeClass('loading');
 								
-							}, helios_settings.carousels.fadeDelay);
+							}, settings.carousels.fadeDelay);
 						}, 50);
 					}
 				
@@ -260,7 +254,7 @@
 						.hide()
 						.mouseenter(function(e) {
 							timerId = window.setInterval(function() {
-								pos -= helios_settings.carousels.speed;
+								pos -= settings.carousels.speed;
 
 								if (pos <= rightLimit)
 								{
@@ -281,7 +275,7 @@
 						.hide()
 						.mouseenter(function(e) {
 							timerId = window.setInterval(function() {
-								pos += helios_settings.carousels.speed;
+								pos += settings.carousels.speed;
 
 								if (pos >= leftLimit)
 								{
@@ -339,13 +333,13 @@
 				if (_isMobile)
 				{
 					$header.css('background-attachment', 'scroll');
-					helios_settings.header.fullScreen = false;
+					settings.header.fullScreen = false;
 				}
 
 			// Homepage header
 				if ($body.hasClass('homepage'))
 				{
-					if (helios_settings.header.fullScreen)
+					if (settings.header.fullScreen)
 					{
 						$window.bind('resize.helios', function() {
 							window.setTimeout(function() {
@@ -359,7 +353,7 @@
 						}).trigger('resize');
 					}
 
-					if (helios_settings.header.fadeIn)
+					if (settings.header.fadeIn)
 					{
 						$('<div class="overlay" />').appendTo($header);
 						
@@ -374,7 +368,7 @@
 									else
 										window.setTimeout(function() {
 											$header.addClass('ready');
-										}, helios_settings.header.fadeDelay);
+										}, settings.header.fadeDelay);
 								
 								});
 							});
